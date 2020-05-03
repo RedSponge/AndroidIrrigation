@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:weightSum="8">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp" android:layout_weight="1" android:text="Edit Program" android:gravity="center" android:textSize="32sp"/>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp" android:layout_weight="6">
+        <TableRow>
+            <TextView android:layout_weight="1" android:layout_width="0dp" android:layout_height="match_parent"
+                android:text="Day:" android:textSize="24sp"/>
+            <Spinner
+                android:id="@+id/spDayChooser"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"/>
+        </TableRow>
+        <TextView android:layout_width="0dp" android:layout_weight="1" android:text="Start Time:"
+            android:gravity="center" android:textSize="24sp"/>
+        <TableRow>
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="2"
+            >
+
+            <TimePicker
+                android:id="@+id/timePicker"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:timePickerMode="clock"
+                />
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Duration: " android:layout_weight="1" android:gravity="center|left"
+                android:layout_width="0dp" android:layout_height="match_parent"/>
+            <EditText android:hint="Duration (Minutes)" android:inputType="number"
+                android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="match_parent" android:id="@+id/etMinuteInput"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Valve: " android:layout_weight="1" android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+            <Spinner android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent"
+                android:id="@+id/spValveChooser"/>
+        </TableRow>
+    </TableLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp" android:layout_weight="1" android:weightSum="2">
+        <Button
+            android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="match_parent" android:text="Save" android:onClick="saveProgram"/>
+        <Button
+            android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="match_parent" android:text="Cancel" android:onClick="cancelEdit"/>
+    </LinearLayout>
+</LinearLayout>
