@@ -2,6 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.redsponge.irrigation">
 
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission-sdk-23 android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,13 +15,14 @@
         android:theme="@style/AppTheme"
         android:name=".IrrigationApplication"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity">
+        <activity android:screenOrientation="portrait" android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProgramListActivity"/>
-        <activity android:name=".ProgramEditActivity"/>
+        <activity android:screenOrientation="portrait" android:name=".ProgramListActivity"/>
+        <activity android:screenOrientation="portrait" android:name=".ProgramEditActivity"/>
+        <activity android:screenOrientation="portrait" android:name=".ValveControlActivity"/>
     </application>
 </manifest>

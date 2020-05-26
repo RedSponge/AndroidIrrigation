@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:weightSum="4"
+    android:layout_height="match_parent" android:weightSum="7"
     android:padding="10sp">
     <LinearLayout
-        android:layout_width="0dp" android:layout_weight="3"
+        android:layout_width="0dp" android:layout_weight="5"
         android:weightSum="5"
         android:clickable="true"
         android:focusable="true"
@@ -15,15 +15,15 @@
             android:layout_height="0dp" android:layout_weight="3"
             android:weightSum="4">
             <TextView
-                android:layout_width="0dp" android:layout_weight="2.5"
+                android:layout_width="0dp" android:layout_weight="3"
                 android:layout_height="match_parent"
                 android:text="Tempday"
-                android:textSize="32sp"
+                android:textSize="28sp"
                 android:gravity="start|center"
                 android:id="@+id/tvDayDisplay"
                 />
             <TextView
-                android:layout_width="0dp" android:layout_weight="1.5"
+                android:layout_width="0dp" android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:textSize="24sp"
                 android:text="16:30"
@@ -45,15 +45,25 @@
                 android:layout_width="0dp" android:layout_weight="3"
                 android:layout_height="match_parent"
                 android:text="Duration: 00:00" android:gravity="center"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:id="@+id/tvDurationDisplay"/>
         </LinearLayout>
     </LinearLayout>
-    <CheckBox
+    <LinearLayout
+        android:id="@+id/checkboxContainer"
         android:layout_width="0dp" android:layout_weight="1"
-        android:layout_height="match_parent"
         android:gravity="center"
-        android:checked="true"
-        android:id="@+id/cbIsActive"
+        android:layout_height="match_parent">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:checked="true"
+            android:id="@+id/cbIsActive"
         />
+    </LinearLayout>
+    <Button
+        android:layout_width="0dp" android:layout_weight="1"
+        android:layout_height="match_parent" android:text="Del"
+        android:id="@+id/btDelProg"/>
 </LinearLayout>

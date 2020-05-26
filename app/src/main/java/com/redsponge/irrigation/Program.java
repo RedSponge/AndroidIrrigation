@@ -1,9 +1,18 @@
 package com.redsponge.irrigation;
 
+import android.content.Intent;
+
+import java.util.Locale;
+
 public class Program {
 
     private int dayOfWeek, startMin, startHour, duration, valve;
     private boolean isActive;
+
+
+    public Program() {
+        this(1, 0, 10, 60, 1, true);
+    }
 
     public Program(int dayOfWeek, int startMin, int startHour, int duration, int valve, boolean isActive) {
         this.dayOfWeek = dayOfWeek;
@@ -63,6 +72,10 @@ public class Program {
         isActive = active;
     }
 
+    public String encode() {
+        return String.format(Locale.UK, "%d,%d,%d,%d,%d,%d", dayOfWeek, startHour, startMin, duration, valve, isActive ? 1 : 0);
+    }
+
     @Override
     public String toString() {
         return "Program{" +
@@ -73,5 +86,17 @@ public class Program {
                 ", valve=" + valve +
                 ", isActive=" + isActive +
                 '}';
+    }
+
+    public static Program decode(String data) {
+        String[] split = data.split(",");
+        return new Program(
+                Integer.parseInt(split[0+1]),
+                Integer.parseInt(split[2+1]),
+                Integer.parseInt(split[1+1]),
+                Integer.parseInt(split[3+1]),
+                Integer.parseInt(split[4+1]),
+                Integer.parseInt(split[5+1]) == 1
+        );
     }
 }

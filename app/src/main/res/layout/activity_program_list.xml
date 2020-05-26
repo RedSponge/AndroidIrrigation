@@ -2,32 +2,47 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="8">
+    android:weightSum="9">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp" android:layout_weight="1"
+        android:text="Current Date" android:gravity="center"
+        android:textSize="24sp"
+        android:id="@+id/tvDateDisplay"/>
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="0dp" android:layout_weight="6" android:id="@+id/programList"></ListView>
+        android:layout_height="0dp" android:layout_weight="6" android:id="@+id/programList"/>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp" android:layout_weight="2"
+        android:layout_height="0dp" android:layout_weight="1"
         android:weightSum="3">
         <Button
             android:layout_width="0dp"
             android:layout_height="match_parent" android:layout_weight="1"
-            android:text="Add"
+            android:text="Create New Program"
             android:onClick="addProgram"
             />
-        <Button
-            android:layout_width="0dp" android:layout_weight="1"
-            android:layout_height="match_parent" android:text="Update"
-            android:onClick="sendUpdatesToServer"
-            />
+
         <Button
             android:layout_width="0dp"
-            android:layout_height="match_parent" android:layout_weight="1"
-            android:text="Refresh"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:onClick="getDataFromServer"
-            />
+            android:text="Reload Programs" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="openManualValveControl"
+            android:text="Manual Valve Control" />
     </LinearLayout>
+    <Button
+        android:layout_width="match_parent" android:layout_weight="1"
+        android:layout_height="0dp" android:text="Send Changes"
+        android:onClick="sendUpdatesToServer"
+        />
 
 </LinearLayout>

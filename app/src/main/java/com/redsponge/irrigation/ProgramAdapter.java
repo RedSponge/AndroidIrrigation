@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -41,6 +42,8 @@ public class ProgramAdapter extends ArrayAdapter<Program> {
         TextView durationDisplay = workOn.findViewById(R.id.tvDurationDisplay);
         TextView valveDisplay = workOn.findViewById(R.id.tvValveDisplay);
         CheckBox isActiveCheckbox = workOn.findViewById(R.id.cbIsActive);
+        Button btDelProg = workOn.findViewById(R.id.btDelProg);
+
         LinearLayout infoDisplay = workOn.findViewById(R.id.llInfoDisplay);
         infoDisplay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +61,17 @@ public class ProgramAdapter extends ArrayAdapter<Program> {
         durationDisplay.setText(String.format(Locale.UK, "Duration: %02d:%02d", hours, mins));
         valveDisplay.setText(String.format(Locale.UK, "Valve: %d", prog.getValve()));
         isActiveCheckbox.setChecked(prog.isActive());
+
+        isActiveCheckbox.setOnClickListener((v) -> prog.setActive(isActiveCheckbox.isChecked()));
+
+        if(getContext() instanceof IApplicationRetriever) {
+            btDelProg.setOnClickListener((v) -> {
+                ((IApplicationRetriever) getContext()).getApp().getPrograms().remove(prog);
+                remove(prog);
+            });
+        } else {
+            btDelProg.setActivated(false);
+        }
 
         return workOn;
     }
